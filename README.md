@@ -50,11 +50,20 @@ interface {
 
    We use intersection type to combine all properties of multiple types
    example :
-   type Status = string & number & boolen;
-
-   function userType(value: Status) : Status {
-      console.log(value);
+   interface User {
+      name: string;
+      email: string;
     }
 
-    userType("Hasim", 2001, true); 
+  interface Admin {
+      role: string;
+  }
+
+  type AdminUser = User & Admin;
+
+  const superAdmin: AdminUser = {
+    name: "John Doe",
+    email: "john@example.com",
+    role: "Super Admin",
+  };
    
